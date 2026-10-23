@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  medreporter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: medical_image_reporter
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=Medical Image Reporter
+      - DEBUG=false
+      - HOST=0.0.0.0
+      - PORT=8000
+      - ALLOWED_ORIGINS=["*"]
+      - DATABASE_URL=sqlite+aiosqlite:///./data/medical_reports.db
+      - SECRET_KEY=medical-reporter-prod-super-secret-key-change-me
+      - MODEL_NAME=Salesforce/blip-image-captioning-large
+      - DEVICE=cpu
+      - UPLOAD_DIR=./data/uploads
+      - MAX_FILE_SIZE_MB=10
+    volumes:
+      # Persistent storage for reports database and uploaded medical scans
+      - medreporter_data:/app/data
+
+volumes:
+  medreporter_data:
+    driver: local

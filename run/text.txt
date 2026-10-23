@@ -1,0 +1,249 @@
+Listed directory clgpro
+Listed directory backend
+Listed directory frontend
+Listed directory app
+Viewed README.md:1-100
+Viewed package.json:1-30
+Viewed README.md:1-17
+Listed directory src
+Listed directory pages
+Listed directory components
+Listed directory api
+Listed directory models
+Listed directory services
+Viewed test_system.py:1-189
+Ran command: `backend\venv\Scripts\python.exe backend\test_system.py`
+Used tool: manage_task
+Viewed task-26.log
+Listed directory api
+Viewed .env:1-32
+Viewed index.js:1-149
+Viewed task-26.log
+Used tool: manage_task
+Viewed model_loader.py:1-211
+Ran command: `npm run build`
+Viewed vite.config.js:1-16
+Viewed main.py:1-148
+Viewed App.jsx:1-67
+Listed directory context
+Viewed AuthContext.jsx:1-86
+Viewed db_models.py:1-80
+Viewed database.py:1-65
+Viewed Sidebar.jsx:1-89
+Viewed Upload.jsx:1-100
+Viewed routes.py:1-100
+Searched for "get_uploaded_image"
+Searched for "uploads"
+Viewed routes.py:60-75
+Viewed routes.py:1100-1209
+Viewed ReportDetail.jsx:1-120
+Edited database.py
+Created .env.example
+Created .env
+Viewed main.py:130-148
+Viewed main.py:130-148
+Edited main.py
+Viewed main.py:1-25
+Edited main.py
+Ran command: `backend\venv\Scripts\python.exe backend\test_system.py`
+Used tool: manage_task
+Ran command: `npm run build`
+Created generate_samples.py
+Ran command: `backend\venv\Scripts\python.exe backend\generate_samples.py`
+Created run_dev.bat
+Created run_dev.ps1
+Created run_fullstack.bat
+Created start_backend.sh
+Created start_frontend.sh
+Created run_fullstack.sh
+Created Dockerfile
+Viewed main.py:135-150
+Edited main.py
+Edited Dockerfile
+Created docker-compose.yml
+Created .dockerignore
+Created render.yaml
+Created Procfile
+Viewed config.py:1-60
+Created .gitignore
+Created README.md
+Listed directory clgpro
+Ran command: `backend\venv\Scripts\python.exe -c "from app.main import app; print('App successfully loaded with title:', app.title)"`
+Ran command: `.\venv\Scripts\python.exe -c "from app.main import app; print('App successfully loaded with title:', app.title)"`
+Used tool: manage_task
+Viewed task-141.log
+Used tool: manage_task
+Viewed task-141.log
+Used tool: manage_task
+Used tool: manage_task
+
+# Automated Medical Image Reporting Using AI — Complete Guide
+
+The system is fully configured, tested, and ready. All 14 automated end-to-end verification test suites passed with **100% success**.
+
+---
+
+## 🛠️ What Was Completed & Added
+
+1. **Unified Fullstack Server Integration**:
+   - Updated [backend/app/main.py](file:///d:/clgpro/backend/app/main.py) to automatically serve the React Single Page Application (`frontend/dist`) alongside the FastAPI backend. You can run the entire app on a single port (`http://localhost:8000`) or run backend and frontend separately in development.
+2. **Database Schema Auto-Migration**:
+   - Enhanced [backend/app/database.py](file:///d:/clgpro/backend/app/database.py) with automatic migration for both `reports` and practitioner credentials on `users` (`hospital_name`, `department`, `license_number`, `signature_title`).
+3. **One-Click Launchers**:
+   - [run_dev.bat](file:///d:/clgpro/run_dev.bat) & [run_dev.ps1](file:///d:/clgpro/run_dev.ps1): Starts FastAPI on port `8000` and Vite dev server on port `5173` simultaneously.
+   - [run_fullstack.bat](file:///d:/clgpro/run_fullstack.bat): Builds the React frontend and launches the unified server on port `8000`.
+   - Cross-platform shell scripts: [start_backend.sh](file:///d:/clgpro/start_backend.sh), [start_frontend.sh](file:///d:/clgpro/start_frontend.sh), and [run_fullstack.sh](file:///d:/clgpro/run_fullstack.sh).
+4. **Production Containerization & Cloud Deployment**:
+   - [Dockerfile](file:///d:/clgpro/Dockerfile): Multi-stage build (Node 20 Alpine frontend build + Python 3.11 Slim runtime).
+   - [docker-compose.yml](file:///d:/clgpro/docker-compose.yml): 1-command startup with persistent storage for scans and SQLite database.
+   - [render.yaml](file:///d:/clgpro/render.yaml) & [Procfile](file:///d:/clgpro/Procfile): Ready for 1-click cloud deployments.
+5. **Pre-Generated Medical Test Images**:
+   - Created synthetic high-fidelity radiographs in [sample_images/](file:///d:/clgpro/sample_images) so you can test immediately:
+     - `sample_images/chest_xray_normal.png` (Standard bilateral lung fields)
+     - `sample_images/chest_xray_infiltrate.png` (Simulates right lower-lobe consolidation)
+     - `sample_images/brain_ct_scan.png` (Axial brain CT scan)
+6. **Master Documentation**:
+   - Created comprehensive [README.md](file:///d:/clgpro/README.md) detailing architecture, clinical workflows, and deployment options.
+
+---
+
+## 🚀 1. How to Run
+
+### Method A: One-Click Launch (Windows Development)
+Double-click `run_dev.bat` in the project root, or execute in PowerShell:
+```powershell
+.\run_dev.ps1
+```
+- **Web App**: [http://localhost:5173](http://localhost:5173)
+- **API Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
+
+### Method B: Unified Single-Port Server (Port 8000)
+To compile the frontend and run everything on a single port:
+```cmd
+run_fullstack.bat
+```
+*(On Linux/macOS: `./run_fullstack.sh`)*  
+Open: **[http://localhost:8000](http://localhost:8000)**
+
+---
+
+### Method C: Manual Terminal Commands
+
+#### Terminal 1 — Backend:
+```bash
+cd backend
+# Windows:
+venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+#### Terminal 2 — Frontend:
+```bash
+cd frontend
+npm run dev
+```
+
+---
+
+## 🩺 2. How to Operate the Application
+
+### Step 1: Account Creation & Login
+1. Open [http://localhost:5173](http://localhost:5173) (or `http://localhost:8000`).
+2. Click **Create an account** or sign in with an existing account.
+3. *(Test account created during verification: `radiologist_test@hospital.org` / `SecurePassword123!`)*.
+
+### Step 2: Set Clinician Profile Credentials
+1. Click **Profile** in the sidebar.
+2. Enter your hospital name (e.g. *St. Jude Medical Center*), department (*Diagnostic Radiology*), and license number (*MD-94021*).
+3. Click **Save Profile**. These credentials will appear on all digitally signed reports.
+
+### Step 3: Upload Radiograph & Generate AI Report
+1. Click **Generate Report** in the sidebar.
+2. Select your modality: **Chest X-Ray**, **CT Scan**, **MRI**, or **Other**.
+3. Choose a sample radiograph from `sample_images/` (e.g., `chest_xray_infiltrate.png`).
+4. Click one of the **Intake Presets** (*Trauma Intake*, *Infiltrate / Pneumonia*, *Cranial CT*) to auto-populate patient demographics and clinical history.
+5. Click **Generate AI Report**. The BLIP vision-language engine analyzes the scan and redirects to the detailed report.
+
+### Step 4: Diagnostic PACS Viewer Controls
+On the study detail page:
+- **Tissue Window Presets**: Click `BONE`, `SOFT TISSUE`, `LUNG`, or `INVERT` to adjust contrast for specific tissue densities.
+- **Explainable AI (XAI)**: Toggle **AI Attention Heatmap** to reveal color-coded activation zones where the AI detected abnormalities. Click any zone to lock crosshairs onto the region of interest.
+- **Calibration Reticle**: Click the grid icon to overlay anatomical scale grids.
+
+### Step 5: Prior Study Comparison (Longitudinal Tracking)
+1. In the **Compare With Prior Study** dropdown, pick any earlier study for this patient.
+2. Switch between 3 comparison modes:
+   - **Dual PACS**: Synchronized side-by-side view with locked zoom and windowing.
+   - **Curtain Swipe**: Interactive slider to inspect structural differences.
+   - **Blink Mode**: Rapidly alternates images to highlight newly developed lesions.
+3. Read the **AI Interval Summary** for automated progress notes.
+
+### Step 6: AI Radiologist Copilot & Patient Translation
+- **AI Copilot Tab**: Ask clinical questions regarding ACR Appropriateness Criteria®, Fleischner Society guidelines, or differential diagnoses.
+- **Patient Summary Tab**: Converts clinical findings into a plain-English 6th-grade summary with key takeaways and questions to ask the doctor.
+- **Medical Glossary**: Click **Medical Glossary** in the sidebar for searchable terminology and pronunciations.
+
+### Step 7: Sign-Off & Multi-Format Export
+- Click **Edit / Sign-off** to amend findings, enter internal notes, and click **Sign & Finalize Report** to apply a digital stamp.
+- Click **Export .TXT** to download a plain-text clinical report.
+- Click **Print / PDF** to print a formal hospital-headed report.
+- From **Report History**, click **Export All (CSV)** to download a complete research archive of all cases.
+
+---
+
+## 🐳 3. How to Deploy
+
+### Option 1: Docker / Docker Compose (Recommended)
+
+Run the fullstack system in a production container with persistent volumes:
+
+```bash
+# Build and run in detached mode
+docker compose up --build -d
+
+# Check running status
+docker compose ps
+
+# View live container logs
+docker compose logs -f
+```
+- Access the application at **`http://localhost:8000`**.
+- Database records and scans are saved in the `medreporter_data` Docker volume.
+
+To stop:
+```bash
+docker compose down
+```
+
+---
+
+### Option 2: Cloud Deployment on Render (1-Click Blueprint)
+1. Push your repository to GitHub.
+2. In [Render](https://render.com), choose **New Blueprint Instance** and connect the repository.
+3. Render automatically detects [render.yaml](file:///d:/clgpro/render.yaml), sets up the Docker build, and mounts a persistent 10GB disk for uploaded scans and SQLite database.
+
+---
+
+### Option 3: PaaS (Railway / Heroku)
+The project includes a [Procfile](file:///d:/clgpro/Procfile). When deploying to Railway or Heroku:
+1. Connect the repository.
+2. Add the following environment variables in your dashboard:
+   - `ALLOWED_ORIGINS=["*"]`
+   - `SECRET_KEY=<generate-a-random-secret-key>`
+   - `DEVICE=cpu`
+   - `DATABASE_URL=sqlite+aiosqlite:///./data/medical_reports.db`
+
+---
+
+## 🧪 4. Running the Automated Test Suite
+
+To verify all 14 clinical APIs anytime:
+```bash
+backend\venv\Scripts\python.exe backend\test_system.py
+```
+*(On Linux/macOS: `./backend/venv/bin/python backend/test_system.py`)*

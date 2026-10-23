@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project README - MedReporter AI</title>
+  <style>
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --border-color: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-emerald: #10b981;
+  --code-bg: #090d16;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 40px 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.doc-header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.doc-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-top: 36px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+ul, ol {
+  margin-bottom: 20px;
+  padding-left: 28px;
+  color: #cbd5e1;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+strong {
+  color: #ffffff;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 32px 0;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  margin-bottom: 20px;
+}
+
+code {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88rem;
+  color: #38bdf8;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background: rgba(15, 23, 42, 0.8);
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+tr:nth-child(even) td {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+blockquote {
+  border-left: 4px solid var(--accent-blue);
+  background: rgba(59, 130, 246, 0.08);
+  padding: 14px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 20px;
+  color: #e2e8f0;
+}
+
+.alert-important {
+  border-left: 4px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 20px;
+}
+
+.img-container {
+  margin: 24px 0;
+  text-align: center;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.img-caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gallery-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.mermaid {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+  text-align: center;
+}
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 0 !important;
+  }
+  .container {
+    max-width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+  h1, h2, h3, strong, th {
+    color: #000 !important;
+    -webkit-text-fill-color: initial !important;
+  }
+  p, li, td {
+    color: #333 !important;
+  }
+  pre, code {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
+  blockquote, .alert-important {
+    background: #f8fafc !important;
+    color: #1e293b !important;
+    border-left-color: #3b82f6 !important;
+  }
+  img {
+    box-shadow: none !important;
+    border-color: #e2e8f0 !important;
+  }
+}
+
+  </style>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.mmin.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="doc-header">
+      <span class="doc-badge">Official Clinical AI Document</span>
+      <h1>Project README - MedReporter AI</h1>
+    </div>
+    <div class="content">
+<h1>🫁 Automated Medical Image Reporting Using AI</h1>
+<p>An end-to-end, clinical-grade AI platform that generates structured radiology reports from medical images (Chest X-Rays, CT Scans, MRIs) with Explainable AI (XAI), PACS viewing tools, longitudinal prior study comparison, patient-friendly translation, and an interactive AI Radiologist Copilot.</p>
+<hr />
+<h2>🌟 Key Features</h2>
+<h3>1. Vision-Language AI Engine</h3>
+<ul>
+<li><strong>Salesforce BLIP Foundation Model</strong>: Pre-trained vision-language model generating structured <strong>Findings</strong> and clinical <strong>Impression</strong>.</li>
+<li><strong>Calculated Confidence Ring</strong>: Sequence log-probability scoring displaying real model certainty (High / Medium / Low).</li>
+<li><strong>Triage &amp; Urgency Classification</strong>: Automated severity tagging (<code>Normal</code>, <code>Attention Required</code>, <code>STAT Urgent Emergency</code>).</li>
+</ul>
+<h3>2. Clinical PACS Diagnostic Viewer</h3>
+<ul>
+<li><strong>DICOM-Grade Windowing</strong>: Sliders and one-click presets for Soft Tissue, Bone Window, Lung Window, and Brain CT.</li>
+<li><strong>Interactive Manipulation</strong>: Smooth zoom (up to 4x), pan, 8-bit negative inversion, and calibration reticle grid.</li>
+<li><strong>Explainable AI (XAI) Heatmaps</strong>: Visual attention hot zones pinpointing suspected infiltrates, pneumothorax, or cardiomegaly with live crosshair ROI targeting.</li>
+</ul>
+<h3>3. Longitudinal Prior Study Comparison</h3>
+<ul>
+<li><strong>Dual Synchronized PACS</strong>: Compare current scan against historical baseline studies side-by-side with synchronized zoom and windowing.</li>
+<li><strong>Interactive Curtain Swipe</strong>: Drag the splitter bar across scans to detect subtle interval changes.</li>
+<li><strong>Rapid Blink Alternator</strong>: Rapidly toggles current vs prior image to immediately reveal newly developed lesions.</li>
+<li><strong>AI Interval Delta Summary</strong>: Automatically details whether findings are <em>Progressed</em>, <em>Unchanged</em>, or <em>Resolved</em>.</li>
+</ul>
+<h3>4. Patient-Friendly Translation &amp; Copilot</h3>
+<ul>
+<li><strong>Empathetic Layperson Translator</strong>: Translates dense radiology jargon into 6th-grade reading level summaries with key takeaways and questions to ask the doctor.</li>
+<li><strong>Interactive AI Radiologist Copilot</strong>: Chat assistant for clinicians discussing ACR Appropriateness Criteria®, Fleischner Society guidelines, and differential diagnoses.</li>
+<li><strong>Searchable Medical Glossary</strong>: 15+ interactive definitions with plain-English explanations and phonetic pronunciations.</li>
+</ul>
+<h3>5. Physician Sign-Off &amp; Multi-Format Export</h3>
+<ul>
+<li><strong>Clinical Sign-Off</strong>: Radiologist can edit findings, add internal notes, and digitally sign reports with practitioner license and institution stamps.</li>
+<li><strong>Multi-Format Export</strong>: Download structured plain-text <code>.txt</code>, print formatted medical records with hospital letterhead, or export the entire clinical database as a batch <code>.csv</code> archive.</li>
+</ul>
+<hr />
+<h2>🏗️ System Architecture</h2>
+<pre><code>clgpro/
+├── backend/                  # FastAPI Python Backend
+│   ├── app/
+│   │   ├── main.py          # Application entrypoint &amp; static SPA mounting
+│   │   ├── config.py        # Settings &amp; environment variables
+│   │   ├── database.py      # Async SQLAlchemy &amp; auto-migration
+│   │   ├── api/
+│   │   │   ├── auth.py      # Authentication (JWT + bcrypt)
+│   │   │   └── routes.py    # Report CRUD, Copilot, XAI, Glossary, Exports
+│   │   ├── models/          # Database ORM &amp; Pydantic schemas
+│   │   └── services/        # AI model loader, image processor, report generator
+│   ├── uploads/             # Storage directory for uploaded scans
+│   ├── test_system.py       # Automated 14-suite verification test
+│   └── requirements.txt     # Python backend dependencies
+│
+├── frontend/                 # React 19 + Vite Frontend
+│   ├── src/
+│   │   ├── pages/           # Dashboard, Upload, Reports, ReportDetail, Profile, Login
+│   │   ├── components/      # Sidebar, PACS viewer controls, Glossary modal
+│   │   ├── context/         # AuthContext (JWT session management)
+│   │   └── api/             # Axios API client
+│   └── package.json
+│
+├── sample_images/            # High-fidelity synthetic radiographs for immediate testing
+│   ├── chest_xray_normal.png
+│   ├── chest_xray_infiltrate.png
+│   └── brain_ct_scan.png
+│
+├── run_dev.bat               # 1-Click Windows Development Launcher
+├── run_fullstack.bat         # 1-Click Windows Unified Fullstack Server (Port 8000)
+├── start_backend.sh          # Linux/macOS Backend Launcher
+├── start_frontend.sh         # Linux/macOS Frontend Launcher
+├── run_fullstack.sh          # Linux/macOS Unified Server Launcher
+├── Dockerfile                # Production multi-stage Docker build
+├── docker-compose.yml        # 1-Command Docker container deployment
+└── render.yaml               # Render cloud deployment blueprint
+</code></pre>
+<hr />
+<h2>🚀 Quick Start &amp; How to Run</h2>
+<h3>System Prerequisites</h3>
+<ul>
+<li><strong>Python</strong>: 3.10 or 3.11 recommended</li>
+<li><strong>Node.js</strong>: 18+ (with <code>npm</code>)</li>
+</ul>
+<hr />
+<h3>Method 1: One-Click Development Launchers (Recommended)</h3>
+<h4>On Windows:</h4>
+<p>Double-click <code>run_dev.bat</code> or run in PowerShell:</p>
+<pre><code class="language-powershell">.\run_dev.ps1
+</code></pre>
+<p>This automatically launches the <strong>FastAPI backend</strong> on <code>http://localhost:8000</code> and the <strong>React Vite frontend</strong> on <code>http://localhost:5173</code>.</p>
+<h4>On Linux / macOS:</h4>
+<p>Open two terminal windows:</p>
+<pre><code class="language-bash"># Terminal 1: Backend
+chmod +x start_backend.sh
+./start_backend.sh
+
+# Terminal 2: Frontend
+chmod +x start_frontend.sh
+./start_frontend.sh
+</code></pre>
+<hr />
+<h3>Method 2: Manual Step-by-Step Terminal Execution</h3>
+<h4>1. Setup &amp; Run Backend</h4>
+<pre><code class="language-bash">cd backend
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start backend server
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+</code></pre>
+<p><em>Backend API docs will be live at <code>http://localhost:8000/docs</code>.</em></p>
+<h4>2. Setup &amp; Run Frontend</h4>
+<pre><code class="language-bash">cd frontend
+
+# Install dependencies
+npm install
+
+# Start Vite dev server
+npm run dev
+</code></pre>
+<p><em>Web application will be live at <code>http://localhost:5173</code>.</em></p>
+<hr />
+<h3>Method 3: Unified Single-Port Fullstack Server (Port 8000)</h3>
+<p>To run both the frontend and backend together on a single port (<code>http://localhost:8000</code>) without running Vite separately:</p>
+<h4>On Windows:</h4>
+<pre><code class="language-cmd">run_fullstack.bat
+</code></pre>
+<h4>On Linux / macOS:</h4>
+<pre><code class="language-bash">chmod +x run_fullstack.sh
+./run_fullstack.sh
+</code></pre>
+<p>FastAPI will serve the production-compiled React application directly at <code>http://localhost:8000</code>.</p>
+<hr />
+<h2>🩺 How to Operate the Application (User Guide)</h2>
+<h3>1. Register &amp; Log In</h3>
+<ol>
+<li>Navigate to <code>http://localhost:5173</code> (or <code>http://localhost:8000</code>).</li>
+<li>Click <strong>Create an account</strong> (or use any registered credentials).</li>
+<li>Fill in your name, email, and password. You will receive an authentication token.</li>
+</ol>
+<h3>2. Update Practitioner Profile</h3>
+<ol>
+<li>Click <strong>Profile</strong> in the sidebar.</li>
+<li>Enter your hospital name (e.g., <em>St. Jude Medical Center</em>), department (<em>Diagnostic Radiology</em>), and license number (<em>MD-94021</em>).</li>
+<li>These details will automatically be stamped on your verified reports.</li>
+</ol>
+<h3>3. Generate an AI Report</h3>
+<ol>
+<li>Click <strong>Generate Report</strong> in the sidebar.</li>
+<li>Drag and drop any medical image, or pick one from <code>sample_images/</code>:
+<ul>
+<li><code>sample_images/chest_xray_normal.png</code> (Standard bilateral lung fields)</li>
+<li><code>sample_images/chest_xray_infiltrate.png</code> (Simulates right lower-lobe consolidation)</li>
+<li><code>sample_images/brain_ct_scan.png</code> (Axial brain CT slice)</li>
+</ul>
+</li>
+<li>Select the modality (<strong>Chest X-Ray</strong>, <strong>CT Scan</strong>, <strong>MRI</strong>, or <strong>Other</strong>).</li>
+<li><em>(Optional)</em> Click one of the <strong>Clinical Intake Presets</strong> (e.g., <em>Trauma Intake</em>, <em>Infiltrate / Pneumonia</em>, <em>Cranial CT</em>) to auto-populate clinical indications and patient demographics.</li>
+<li>Click <strong>Generate AI Report</strong>. The system runs inference and navigates to the detailed report page.</li>
+</ol>
+<h3>4. PACS Diagnostic Viewer Tools</h3>
+<p>On the report page:</p>
+<ul>
+<li><strong>Presets</strong>: Click <code>BONE</code>, <code>SOFT TISSUE</code>, <code>LUNG</code>, or <code>INVERT</code> to optimize contrast for specific tissue densities.</li>
+<li><strong>Sliders</strong>: Adjust brightness and contrast manually.</li>
+<li><strong>Reticle Grid</strong>: Click the grid icon to project an anatomical measurement overlay.</li>
+<li><strong>Explainable AI (XAI)</strong>: Click <strong>AI Attention Heatmap</strong> to visualize color activation zones where the AI detected abnormalities. Click any zone to lock crosshairs.</li>
+</ul>
+<h3>5. Prior Study Longitudinal Comparison</h3>
+<ol>
+<li>At the top of the report, locate the <strong>Compare With Prior Study</strong> dropdown.</li>
+<li>Select an earlier study.</li>
+<li>Switch between comparison modes:
+<ul>
+<li><strong>Dual PACS</strong>: View both studies side-by-side with synchronized zoom and windowing.</li>
+<li><strong>Curtain Swipe</strong>: Slide the divider across the scan to detect new lesions.</li>
+<li><strong>Blink Mode</strong>: Rapidly flip between studies to identify changes.</li>
+</ul>
+</li>
+<li>Read the <strong>AI Interval Summary</strong> for automated progress notes.</li>
+</ol>
+<h3>6. AI Copilot &amp; Patient Translation</h3>
+<ul>
+<li>Click the <strong>Patient Summary</strong> tab to generate a clear, compassionate explanation for patients with suggested questions for their doctor.</li>
+<li>Click the <strong>AI Copilot</strong> tab to query the radiologist assistant for differential diagnoses or clinical guideline references.</li>
+</ul>
+<h3>7. Sign-Off &amp; Exporting</h3>
+<ul>
+<li>Click <strong>Edit / Sign-off</strong> to modify findings or append internal notes.</li>
+<li>Click <strong>Sign &amp; Finalize Report</strong> to apply your official practitioner signature and timestamp.</li>
+<li>Click <strong>Export .TXT</strong> for a plain-text copy, or <strong>Print / PDF</strong> for a printable report with hospital header and signature stamp.</li>
+<li>From the <strong>Report History</strong> page, click <strong>Export All (CSV)</strong> to download a complete research archive of all cases.</li>
+</ul>
+<hr />
+<h2>🐳 How to Deploy</h2>
+<h3>Option 1: Docker &amp; Docker Compose (Recommended for Production)</h3>
+<p>Run the entire application in a self-contained container with persistent storage:</p>
+<pre><code class="language-bash"># Build and run container
+docker compose up --build -d
+
+# Check status
+docker compose ps
+
+# View logs
+docker compose logs -f
+</code></pre>
+<p>The application will be accessible at <code>http://localhost:8000</code>. Database records and uploaded images are persisted in the <code>medreporter_data</code> Docker volume.</p>
+<p>To stop the service:</p>
+<pre><code class="language-bash">docker compose down
+</code></pre>
+<hr />
+<h3>Option 2: Render Deployment (1-Click Cloud Blueprint)</h3>
+<ol>
+<li>Fork or push this repository to GitHub.</li>
+<li>Log in to <a href="https://render.com">Render</a>.</li>
+<li>Create a <strong>New Blueprint Instance</strong> and select your repository.</li>
+<li>Render will read <code>render.yaml</code>, configure the persistent 10GB disk for uploads and SQLite, and deploy the application.</li>
+</ol>
+<hr />
+<h3>Option 3: Railway / Heroku / CapRover</h3>
+<p>The project contains a <code>Procfile</code> configured for container/PaaS platforms:</p>
+<pre><code>web: cd backend &amp;&amp; uvicorn app.main:app --host 0.0.0.0 --port $PORT
+</code></pre>
+<p>Set the following environment variables in your deployment dashboard:</p>
+<ul>
+<li><code>ALLOWED_ORIGINS=[&quot;*&quot;]</code></li>
+<li><code>SECRET_KEY=&lt;your-secret-random-key&gt;</code></li>
+<li><code>DEVICE=cpu</code></li>
+<li><code>DATABASE_URL=sqlite+aiosqlite:///./data/medical_reports.db</code></li>
+</ul>
+<hr />
+<h3>Option 4: Linux VPS (Ubuntu / Debian + Systemd)</h3>
+<ol>
+<li>Clone the repository to <code>/opt/medreporter</code>.</li>
+<li>Build the frontend:<pre><code class="language-bash">cd /opt/medreporter/frontend &amp;&amp; npm ci &amp;&amp; npm run build
+</code></pre>
+</li>
+<li>Setup Python venv:<pre><code class="language-bash">cd /opt/medreporter/backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+</code></pre>
+</li>
+<li>Create systemd service <code>/etc/systemd/system/medreporter.service</code>:<pre><code class="language-ini">[Unit]
+Description=Medical Image Reporter FastAPI Service
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/opt/medreporter/backend
+ExecStart=/opt/medreporter/backend/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+</li>
+<li>Enable and start:<pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable --now medreporter
+</code></pre>
+</li>
+</ol>
+<hr />
+<h2>🧪 Testing &amp; Verification</h2>
+<p>The project includes an end-to-end automated verification test suite covering <strong>14 clinical workflows</strong>:</p>
+<pre><code class="language-bash"># Windows
+backend\venv\Scripts\python.exe backend\test_system.py
+
+# Linux/macOS
+./backend/venv/bin/python backend/test_system.py
+</code></pre>
+<h3>Verified Test Suites:</h3>
+<ol>
+<li>Health check &amp; AI model status (<code>/api/health</code>)</li>
+<li>User registration and JWT authentication (<code>/api/auth/register</code>)</li>
+<li>Clinician profile retrieval (<code>/api/auth/me</code>)</li>
+<li>Synthetic radiograph generation &amp; AI report pipeline (<code>/api/report/generate</code>)</li>
+<li>Report detail retrieval with XAI heatmaps &amp; DICOM tags (<code>/api/reports/{id}</code>)</li>
+<li>Uploaded radiograph static media serving (<code>/api/uploads/{filename}</code>)</li>
+<li>Dashboard aggregate statistics and weekly volume (<code>/api/dashboard</code>)</li>
+<li>Full-text search over clinical findings (<code>/api/reports/search</code>)</li>
+<li>Plain-text clinical report export (<code>/api/reports/{id}/export</code>)</li>
+<li>Longitudinal prior study comparison &amp; delta analysis (<code>/api/reports/{id}/compare/{prior_id}</code>)</li>
+<li>Layperson patient summary generation (<code>/api/reports/{id}/patient-summary</code>)</li>
+<li>AI Radiologist Copilot interactive consultation (<code>/api/reports/{id}/copilot</code>)</li>
+<li>System telemetry &amp; hardware metrics (<code>/api/system/metrics</code>)</li>
+<li>Batch clinical research archive export (<code>/api/reports/export/all</code>)</li>
+</ol>
+<hr />
+<h2>⚙️ Environment Variables</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>APP_NAME</code></td>
+<td><code>Medical Image Reporter</code></td>
+<td>Application display name</td>
+</tr>
+<tr>
+<td><code>APP_VERSION</code></td>
+<td><code>1.0.0</code></td>
+<td>Semantic version string</td>
+</tr>
+<tr>
+<td><code>DEBUG</code></td>
+<td><code>true</code></td>
+<td>Enable SQL query logs and debug mode</td>
+</tr>
+<tr>
+<td><code>HOST</code></td>
+<td><code>0.0.0.0</code></td>
+<td>Server bind IP address</td>
+</tr>
+<tr>
+<td><code>PORT</code></td>
+<td><code>8000</code></td>
+<td>Server listen port</td>
+</tr>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td><code>sqlite+aiosqlite:///./medical_reports.db</code></td>
+<td>SQLAlchemy database URL</td>
+</tr>
+<tr>
+<td><code>SECRET_KEY</code></td>
+<td><code>medical-image-reporter-dev-secret-key-2024</code></td>
+<td>Secret key for JWT signing</td>
+</tr>
+<tr>
+<td><code>ALGORITHM</code></td>
+<td><code>HS256</code></td>
+<td>JWT cryptographic algorithm</td>
+</tr>
+<tr>
+<td><code>ACCESS_TOKEN_EXPIRE_MINUTES</code></td>
+<td><code>1440</code> (24h)</td>
+<td>Token lifespan</td>
+</tr>
+<tr>
+<td><code>MODEL_NAME</code></td>
+<td><code>Salesforce/blip-image-captioning-large</code></td>
+<td>HuggingFace model repo</td>
+</tr>
+<tr>
+<td><code>DEVICE</code></td>
+<td><code>cpu</code></td>
+<td>Inference device (<code>cpu</code> or <code>cuda</code>)</td>
+</tr>
+<tr>
+<td><code>UPLOAD_DIR</code></td>
+<td><code>./uploads</code></td>
+<td>Directory where uploaded scans are stored</td>
+</tr>
+<tr>
+<td><code>MAX_FILE_SIZE_MB</code></td>
+<td><code>10</code></td>
+<td>Maximum scan file size in megabytes</td>
+</tr>
+<tr>
+<td><code>ALLOWED_ORIGINS</code></td>
+<td><code>[&quot;*&quot;]</code></td>
+<td>CORS origin whitelist</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🔒 Security &amp; Medical Disclaimer</h2>
+<blockquote>
+<p><strong>Medical Disclaimer</strong>: This application is built for clinical decision support, academic demonstration, and educational purposes. In real-world hospital environments, reports generated by AI must always be reviewed, edited, and approved by a certified physician or licensed radiologist before clinical intervention.</p>
+</blockquote>
+<hr />
+<h2>📄 License</h2>
+<p>MIT License. Built for advanced medical imaging informatics and AI research.</p>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Virtual environments
+**/venv
+**/.venv
+**/env
+
+# Node modules & build cache
+**/node_modules
+**/.npm
+frontend/dist
+
+# Python cache & artifacts
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache
+
+# Git
+.git
+.gitignore
+
+# Database and uploaded scans (handled via volume)
+*.db
+backend/medical_reports.db
+backend/uploads/*
+!backend/uploads/.gitkeep

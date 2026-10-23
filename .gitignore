@@ -1,0 +1,17 @@
+# Dependencies and virtual environments (excluded to prevent GitHub 100MB file limit errors)
+**/venv/
+**/env/
+**/.venv/
+**/node_modules/
+
+# Python caches
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temp files
+*.log
+.DS_Store
+Thumbs.db
+
